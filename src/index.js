@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Card from './Card.js';
 import 'tachyons';
-import {robots} from './robots'
+import {robots} from './robots';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
