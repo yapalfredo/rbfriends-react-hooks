@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import CardList from './CardList.js'
 import SearchBox from './SearchBox.js'
-import {robots} from './robots';
+import Scroll from "./Scroll.js";
 import './App.css'
 
 class App extends Component {
@@ -17,7 +17,12 @@ class App extends Component {
         }
     }
 
+    //This gets run be React automatically when a component is loaded
+    //successfully
     componentDidMount(){
+        //Fetches data from a url
+        //converts it to json
+        //then assigns it to the robots state
         fetch('https://jsonplaceholder.cypress.io/users')
         .then(res => res.json())
         .then(users => this.setState({robots: users}));
@@ -50,7 +55,14 @@ class App extends Component {
                 <div className="tc">
                     <h1 className="f1">RoboFriends</h1>
                     <SearchBox searchChange={this.onSearchChange}/>
-                    <CardList robots={filteredRobots}/>
+
+                    {/* Wraps the CardList component with Scroll.
+                        What happens automatically, React creates a prop
+                        for Scroll to access its children
+                    */}
+                    <Scroll>
+                        <CardList robots={filteredRobots}/>
+                    </Scroll>
                 </div>
             );
         }
