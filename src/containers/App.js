@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import CardList from '../components/CardList.js'
 import SearchBox from '../components/SearchBox.js'
 import Scroll from "../components/Scroll.js";
+import ErrorBoundary from "../components/ErrorBoundary.js";
 import './App.css'
 
 class App extends Component {
@@ -61,7 +62,9 @@ class App extends Component {
                 for Scroll to access its children
             */}
             <Scroll>
-                <CardList robots={filteredRobots}/>
+                <ErrorBoundary>
+                    <CardList robots={filteredRobots}/>
+                </ErrorBoundary>
             </Scroll>
         </div>
         )
