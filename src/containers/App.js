@@ -13,6 +13,12 @@ function App() {
     const [robots, setRobots] = useState([])
     const [searchfield, setSearchfield] = useState('')
 
+
+    //Practice more with Hooks
+    //Create count state to be used by
+    //button and then console log the click count
+    const [count, setCount] =useState(0)
+
     const onSearchChange = (event) => {
         setSearchfield(event.target.value)
     }
@@ -30,13 +36,20 @@ function App() {
         fetch('https://jsonplaceholder.cypress.io/users')
         .then(res => res.json())
         .then(users => setRobots(users));
-    },[])
+
+        //console logs the count number.
+        //also, put the count in the dependency []
+        //so React refreshes everytime there's an update
+        //stricly related to count
+        console.log(count)
+    },[count])
 
     return !robots.length ?
         <h1>Loading</h1> :
     (
         <div className="tc">
         <h1 className="f1">RoboFriends</h1>
+        <button onClick={()=>setCount(count+1)}>Click Me!</button>
         <SearchBox searchChange={onSearchChange}/>
 
         <Scroll>
