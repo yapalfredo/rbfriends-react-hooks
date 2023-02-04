@@ -32,7 +32,7 @@ function App() {
   // The '[]' is the shortcut for componentDidMount()
   // and also replicates the behavior of it
   useEffect(() => {
-    fetch("https://jsonplaceholder.cypress.io/users")
+    fetch("https://api.npoint.io/fd83bca596cb1a59e38c")
       .then((res) => res.json())
       .then((users) => setRobots(users));
 
