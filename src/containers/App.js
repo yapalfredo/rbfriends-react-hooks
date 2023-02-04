@@ -6,6 +6,7 @@ import SearchBox from "../components/SearchBox.js";
 import Scroll from "../components/Scroll.js";
 import ErrorBoundary from "../components/ErrorBoundary.js";
 import "./App.css";
+import { CircularProgress } from "react-loading-indicators";
 
 function App() {
   //Initializing Hooks needed
@@ -43,7 +44,20 @@ function App() {
   });
 
   return !robots.length ? (
-    <h1>Loading</h1>
+    <view
+      style={{
+        flex: 1,
+        width: 100,
+        height: 100,
+      }}
+    >
+      <CircularProgress
+        color="#0ccac4"
+        size="large"
+        text="Loading"
+        textColor="white"
+      />
+    </view>
   ) : (
     <div className="tc">
       <h1 className="f1">RoboFriends</h1>
