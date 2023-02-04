@@ -60,7 +60,7 @@ function App() {
     </view>
   ) : (
     <div className="tc">
-      <h1 className="f1">RoboFriends</h1>
+      <h1 className="f-subheadline lh-solid">RoboFriends</h1>
       {/* <button onClick={()=>setCount(count+1)}>Click Me!</button> */}
       <SearchBox searchChange={onSearchChange} />
 
